@@ -40,6 +40,7 @@ public class Kiosk {
                     return;
                 }else if(categoryNum > categoryMenu.size()){
                     System.out.println("번호를 선택해주세요 (1번 햄버거, 2번..., 3번...)");
+                    continue;
                 }
                 categoryMenu.get(categoryNum-1).getCategory();
 
@@ -50,19 +51,18 @@ public class Kiosk {
                     // 리스트 안에 객체가 존재하고 -> 그 객체가 리스트 형태로 존재
                     if (choice > categoryMenu.get(categoryNum-1).getHamburgerMenus().size()) {
                         System.out.println("번호를 선택해주세요 (1,2,3,4)");
+                        continue;
                     } else if (choice == 0) {
                         break;
-                    } else{
-                        categoryMenu.get(categoryNum - 1).getMenu(choice);
-                        break;
                     }
+                    categoryMenu.get(categoryNum - 1).getMenu(choice);
+                    break;
+
                 }
 
             } while (true);
         } catch (InputMismatchException e) {
             throw new InputMismatchException("번호를 선택해주세요");
-        } catch (IndexOutOfBoundsException e){
-            throw new IndexOutOfBoundsException("카테고리 번호를 선택해주세요");
         }
     }
 
