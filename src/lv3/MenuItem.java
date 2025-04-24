@@ -43,7 +43,7 @@ public class MenuItem {
 
     // 메뉴 설명
     public String getMenu (){
-        return  + getNumber() + "번 " +
+        return  getNumber() + "번 " +
                 "햄버거 : " + getHamburgerName() +
                 " 가격 : " + getPrice() +
                 " 설명 :" +getDescription();
