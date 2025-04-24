@@ -39,7 +39,7 @@ public class Kiosk {
                     System.out.println("0. 종료      | 종료");
                     // 현재 메서드를 종료 - return
                     return;
-                } else if (choice >= menuItems.size()) {
+                } else if (choice > menuItems.size()) {
                         System.out.println("메뉴 번호를 선택해주세요 (1,2,3,4)");
                 } else{
                     menuItems.get(choice-1).getMenuItem();
