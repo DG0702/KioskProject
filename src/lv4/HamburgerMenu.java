@@ -1,6 +1,6 @@
 package lv4;
 
-public class HamburgerMenu {
+public class HamburgerMenu <T> implements MenuItem{
 
     // 속성
     private int number;
@@ -39,6 +39,7 @@ public class HamburgerMenu {
     }
 
     // 메뉴 출력
+    @Override
     public String getMenu(){
         return "선택한 메뉴는 " + getNumber() + "번 " +
                 "햄버거 : " + getHamburgerName() +

@@ -49,7 +49,7 @@ public class Kiosk {
                     System.out.println("메뉴를 선택해주세요 / '0' 입력 시 뒤로가기 ");
                     choice = sc.nextInt();
                     // 리스트 안에 객체가 존재하고 -> 그 객체가 리스트 형태로 존재
-                    if (choice > categoryMenu.get(categoryNum-1).getHamburgerMenus().size()) {
+                    if (choice > categoryMenu.get(categoryNum-1).getCategoryList().size()) {
                         System.out.println("번호를 선택해주세요 (1,2,3,4)");
                         continue;
                     } else if (choice == 0) {

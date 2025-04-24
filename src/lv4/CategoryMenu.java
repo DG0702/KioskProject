@@ -2,23 +2,25 @@ package lv4;
 
 import java.util.List;
 
-public class CategoryMenu {
+public class CategoryMenu <T extends MenuItem>{
 
     // 속성
     private int number;
     private String categoryName;
-    List<HamburgerMenu> hamburgerMenus;
+    List<T> categoryList;
 
     // 생성자
-    CategoryMenu(int number,String categoryName, List<HamburgerMenu> hamburgerMenus) {
+    CategoryMenu(int number,String categoryName, List<T> categoryList) {
         this.number = number;
         this.categoryName = categoryName;
-        this.hamburgerMenus = hamburgerMenus;
+        this.categoryList = categoryList;
     }
 
+
+
     // getter
-    public List<HamburgerMenu> getHamburgerMenus() {
-        return hamburgerMenus;
+    public List<T> getCategoryList() {
+        return categoryList;
     }
 
     // 카테고리 번호
@@ -34,14 +36,14 @@ public class CategoryMenu {
 
     // 카테고리별 메뉴 출력
     public void getCategory(){
-        for(HamburgerMenu hamburgerMenu : hamburgerMenus) {
-            System.out.println(hamburgerMenu.getMenu());
+        for(T categoryListMenu : categoryList) {
+            System.out.println(categoryListMenu.getMenu());
         }
     }
 
     // 선택한 메뉴 출력
     public void getMenu(int choice){
-        System.out.println(getHamburgerMenus().get(choice-1).getMenu());
+        System.out.println(getCategoryList().get(choice-1).getMenu());
     }
 
 
