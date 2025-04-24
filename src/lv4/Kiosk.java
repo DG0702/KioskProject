@@ -40,29 +40,29 @@ public class Kiosk {
                     return;
                 }else if(categoryNum > categoryMenu.size()){
                     System.out.println("번호를 선택해주세요 (1번 햄버거, 2번..., 3번...)");
-                }else{
-                    switch (categoryNum){
-                        case 1:
-                            categoryMenu.get(categoryNum-1).getCategory();
-                            break;
-                        case 2:
-                            System.out.println("2번 출력");
-                            break;
-                    }
-                    
-                    // 메뉴 번호 고르기
-                    System.out.println("메뉴를 선택해주세요");
+                }
+                categoryMenu.get(categoryNum-1).getCategory();
+
+                // 메뉴 번호 고르기
+                while (true) {
+                    System.out.println("메뉴를 선택해주세요 / '0' 입력 시 뒤로가기 ");
                     choice = sc.nextInt();
                     // 리스트 안에 객체가 존재하고 -> 그 객체가 리스트 형태로 존재
                     if (choice > categoryMenu.get(categoryNum-1).getHamburgerMenus().size()) {
                         System.out.println("번호를 선택해주세요 (1,2,3,4)");
-                    }else{
+                    } else if (choice == 0) {
+                        break;
+                    } else{
                         categoryMenu.get(categoryNum - 1).getMenu(choice);
+                        break;
                     }
                 }
+
             } while (true);
         } catch (InputMismatchException e) {
-            throw new InputMismatchException("메뉴번호를 선택해주세요");
+            throw new InputMismatchException("번호를 선택해주세요");
+        } catch (IndexOutOfBoundsException e){
+            throw new IndexOutOfBoundsException("카테고리 번호를 선택해주세요");
         }
     }
 
