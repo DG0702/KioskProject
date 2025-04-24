@@ -60,5 +60,7 @@ public class Main {
         } catch (InputMismatchException e) {
             throw new InputMismatchException("메뉴번호를 선택해주세요");
         }
+
+
     }
 }
