@@ -1,6 +1,6 @@
 package lv4;
 
-public class Beverage implements MenuItem{
+public class BeverageMenu implements MenuItem{
     // 속성
     private int number;
     private String beverageName;
@@ -8,7 +8,7 @@ public class Beverage implements MenuItem{
     private String description;
 
     // 생성자
-    public Beverage(int number, String beverageName, double price, String description) {
+    public BeverageMenu(int number, String beverageName, double price, String description) {
         this.number = number;
         this.beverageName = beverageName;
         this.price = price;

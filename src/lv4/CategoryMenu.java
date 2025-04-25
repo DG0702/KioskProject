@@ -7,7 +7,7 @@ public class CategoryMenu <T extends MenuItem>{
     // 속성
     private int number;
     private String categoryName;
-    List<T> categoryList;
+    private List<T> categoryList;
 
     // 생성자
     CategoryMenu(int number,String categoryName, List<T> categoryList) {
@@ -41,9 +41,9 @@ public class CategoryMenu <T extends MenuItem>{
         }
     }
 
-    // 선택한 메뉴 출력
-    public void getMenu(int choice){
-        System.out.println(getCategoryList().get(choice-1).getMenu());
+    // 선택한 카테고리 메뉴 출력
+    public void getMenu(int menuNum){
+        System.out.println(getCategoryList().get(menuNum-1).getMenu());
     }
 
 
