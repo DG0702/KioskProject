@@ -11,7 +11,7 @@ public class Kiosk {
 
     Scanner sc = new Scanner(System.in);
 
-    // MenuItem 관리하는 리스트
+    // 메뉴 추가하는 리스트
     List<MenuItem> menuItems = new ArrayList<>();
     int choice ;
 
@@ -28,6 +28,8 @@ public class Kiosk {
             do {
                 System.out.println();
                 System.out.println("[SHAKESHACK MENU]");
+
+                // 메뉴 종류 출력
                 for(MenuItem menuitem : menuItems){
                     System.out.println(menuitem.getMenu());
                 }
@@ -41,9 +43,11 @@ public class Kiosk {
                     return;
                 } else if (choice > menuItems.size()) {
                         System.out.println("메뉴 번호를 선택해주세요 (1,2,3,4)");
-                } else{
-                    menuItems.get(choice-1).getMenuItem();
+                        continue;
                 }
+                
+                // 선택한 메뉴 출력
+                menuItems.get(choice-1).getMenuItem();
             } while (true);
         } catch (InputMismatchException e) {
             throw new InputMismatchException("메뉴번호를 선택해주세요");
