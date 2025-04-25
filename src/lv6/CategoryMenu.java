@@ -8,7 +8,6 @@ public class CategoryMenu <T extends  MenuItem> {
     private int number;
     private String categoryName;
     private List<T> categoryList;
-//    private List<T> shoppingCart;
 
     // 생성자
     CategoryMenu(int number, String categoryName, List<T> categoryList){
@@ -33,10 +32,6 @@ public class CategoryMenu <T extends  MenuItem> {
     }
 
 
-//    // 장바구니 리스트
-//    public List<T> getShoppingCart(){
-//        return shoppingCart;
-//    }
 
 
 
@@ -51,15 +46,6 @@ public class CategoryMenu <T extends  MenuItem> {
     public void getMenu(int menuNum){
         System.out.println(getCategoryList().get(menuNum - 1).getMenu());
     }
-
-//    // 선택한 카테고리에서 메뉴 선택
-//    public void addItem(int menuNum){
-//        getShoppingCart().add(getCategoryList().get(menuNum - 1));
-//    }
-
-//    public T addItem(T item){
-//        return
-//    }
 
 
 }

@@ -6,9 +6,7 @@ import java.util.List;
 
 public class ShoppingCart {
     // 속성
-    private String menuName;
-    private double price;
-    private String description;
+
     private MenuItem menu;
 
     // 생성자
