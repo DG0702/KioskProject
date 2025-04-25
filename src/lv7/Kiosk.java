@@ -48,6 +48,9 @@ public class Kiosk {
     // 전체 금액
     double totalPrice;
 
+    // 제거할 메뉴
+    int removeNum;
+
 
     // 생성자
     Kiosk(List<lv7.CategoryMenu> categoryMenus){
@@ -115,9 +118,16 @@ public class Kiosk {
 
                     System.out.println("W : " + sumPrice);
 
-                    System.out.println("1. 주문  | 2. 메뉴판");
+                    System.out.println("1. 주문  | 2. 메뉴 빼기  | 3. 메뉴판");
                     orderNum = sc.nextInt();
-                    if (orderNum >= 2) {
+                    if (orderNum >= 3) {
+                        continue;
+                    } else if (orderNum == 2) {
+                        this.cartItems.forEach(cart -> System.out.println(cart.getMenu()));
+                        System.out.println("무슨 메뉴를 빼시겠어요?");
+                        removeNum = sc.nextInt();
+                        cartItems.remove(removeNum-1);
+                        this.cartItems.forEach(cart -> System.out.println(cart.getMenu()));
                         continue;
                     }
                     System.out.println("할인 정보를 입력해주세요");
