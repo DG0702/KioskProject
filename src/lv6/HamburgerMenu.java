@@ -2,7 +2,7 @@ package lv6;
 
 import java.util.List;
 
-public class HamburgerMenu <T> implements MenuItem {
+public class HamburgerMenu  implements MenuItem {
     // 속성
     private int number;
     private String hamburgerName;
