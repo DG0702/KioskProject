@@ -33,9 +33,14 @@ public class CategoryMenu <T extends MenuItem> {
 
     // 카테고리별 메뉴 출력
     public void getCategory(){
-        for(T categoryListMenu : categoryList){
-            System.out.println(categoryListMenu.getMenu());
-        }
+//        for(T categoryListMenu : categoryList){
+//            System.out.println(categoryListMenu.getMenu());
+//        }
+
+        categoryList.stream()
+                .map(MenuItem::getMenu)
+                .forEach(System.out::println);
+
     }
 
     // 선택한 카테고리에서 메뉴 출력

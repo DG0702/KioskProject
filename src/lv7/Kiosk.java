@@ -61,9 +61,13 @@ public class Kiosk {
             do {
                 System.out.println();
                 System.out.println("[Main MENU]  / 0 입력 시 종료");
-                for (CategoryMenu categoryMenu : this.categoryMenus) {
-                    System.out.println(categoryMenu.getNumber() + "번 " + categoryMenu.getCategoryName());
-                }
+//                for (CategoryMenu categoryMenu : this.categoryMenus) {
+//                    System.out.println(categoryMenu.getNumber() + "번 " + categoryMenu.getCategoryName());
+//                }
+
+                // 스트림 처리 -> 체이닝(줄줄이 메서드 연결) 하지 않기 때문에 (stream 생략)
+                this.categoryMenus.forEach(category -> System.out.println(category.getNumber() + "번 " + category.getCategoryName()));
+
 
                 // 장바구니 안에 목록이 생겼을 경우
                 if (cartItems.size() > 0) {
@@ -87,15 +91,28 @@ public class Kiosk {
                     System.out.println("[Orders]");
 
                     // 장바구니에 담긴 메뉴 출력
-                    for (lv7.ShoppingCart cart : this.cartItems) {
-                        System.out.println(cart.getMenu());
-                    }
+//                    for (lv7.ShoppingCart cart : this.cartItems) {
+//                        System.out.println(cart.getMenu());
+//                    }
+                    this.cartItems.forEach(cart -> System.out.println(cart.getMenu()));
+
                     System.out.println();
                     System.out.println("[Total]");
-                    for (lv7.ShoppingCart cart : this.cartItems) {
-                        double price = cart.getMenuPrice();
-                        sumPrice += price;
-                    }
+
+                    // 장바구니에 메뉴 값 계산
+//                    for (lv7.ShoppingCart cart : this.cartItems) {
+//                        double price = cart.getMenuPrice();
+//                        sumPrice += price;
+//                    }
+
+                    // mapToDouble() -> double 값 추출할 때 사용 -> 숫자 전용 메서드 사용 가능
+                    // 숫자 전용 메서드 :  .sum() .average() .min() .max() 등
+                    double sumPrice = this.cartItems.stream()
+                            .mapToDouble(ShoppingCart::getMenuPrice)
+                            .sum();
+
+
+
                     System.out.println("W : " + sumPrice);
 
                     System.out.println("1. 주문  | 2. 메뉴판");
