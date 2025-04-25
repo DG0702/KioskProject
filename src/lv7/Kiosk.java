@@ -114,9 +114,8 @@ public class Kiosk {
                             .mapToDouble(ShoppingCart::getMenuPrice)
                             .sum();
 
-
-
                     System.out.println("W : " + sumPrice);
+
 
                     System.out.println("1. 주문  | 2. 메뉴 빼기  | 3. 메뉴판");
                     orderNum = sc.nextInt();
