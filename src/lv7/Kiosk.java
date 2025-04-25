@@ -39,6 +39,16 @@ public class Kiosk {
     // 주문 번호
     int orderNum;
 
+    // 할인 번호
+    int discountNum;
+
+    // 할인
+    Discount discount;
+
+    // 전체 금액
+    double totalPrice;
+
+
     // 생성자
     Kiosk(List<lv7.CategoryMenu> categoryMenus){
         this.categoryMenus = categoryMenus;
@@ -93,7 +103,30 @@ public class Kiosk {
                     if (orderNum >= 2) {
                         continue;
                     }
-                    System.out.println("주문이 완료되었습니다 금액은 W : " + sumPrice + "입니다");
+                    System.out.println("할인 정보를 입력해주세요");
+                    System.out.println("1. 국가 유공자 : 10%");
+                    System.out.println("2. 군인 : 5%");
+                    System.out.println("3. 학생 : 3%");
+                    System.out.println("4. 일반 : 0%");
+                    discountNum = sc.nextInt();
+
+                    // Discount 타입으로
+                    discount = Discount.getDiscount(discountNum);
+
+                    switch (discount){
+                        case VETERAN:
+                            totalPrice = (sumPrice * 1000) - (sumPrice * 1000 * 0.1);
+                            break;
+                        case SOLDIER:
+                            totalPrice = (sumPrice * 1000) - (sumPrice * 1000 * 0.05);
+                            break;
+                        case STUDENT:
+                            totalPrice = (sumPrice * 1000) - (sumPrice * 1000 * 0.03);
+                            break;
+                        case GENERAL:
+                            totalPrice = sumPrice * 1000;
+                    }
+                    System.out.println("주문이 완료되었습니다 금액은 W : " + (int)totalPrice + "원 입니다");
                     cartItems.clear();
                     continue;
                 }
