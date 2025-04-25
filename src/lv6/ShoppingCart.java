@@ -1,10 +1,11 @@
 package lv6;
 
 
-public class ShoppingCart {
+public class ShoppingCart  {
     // 속성
 
     private MenuItem menu;
+    private double sum;
 
     // 생성자
     ShoppingCart(MenuItem menu){
@@ -16,17 +17,23 @@ public class ShoppingCart {
         return menu.getMenuName();
     }
 
-    public double getPrice(){
+    public double getMenuPrice(){
         return menu.getMenuPrice();
     }
 
-    public String getDescription(){
+    public String getMenuDescription(){
         return menu.getMenuDescription();
     }
 
 
     public String getMenu (){
-        return "주문목록 : " + getMenuName() + "  |  가격 : " + getPrice() + "    | 설명 : " + getDescription();
+        return "주문목록 : " + getMenuName() + "  |  가격 : " + getMenuPrice() + "    | 설명 : " + getMenuDescription();
+    }
+
+    // 모든 메뉴 가격의 합
+    public double getSumPrice(){
+        sum += menu.getMenuPrice();
+        return sum;
     }
 
 

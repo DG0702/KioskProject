@@ -12,8 +12,8 @@ public class Main {
         List<BeverageMenu> beverageMenus = new ArrayList<>();
 
         // 카테고리에 메뉴 추가
-        categoryMenus.add(new CategoryMenu<>(1, "햄버거", hamburgerMenus));
-        categoryMenus.add(new CategoryMenu<>(2,"음료",beverageMenus));
+        categoryMenus.add(new CategoryMenu<>(1, "Burgers", hamburgerMenus));
+        categoryMenus.add(new CategoryMenu<>(2,"Drinks",beverageMenus));
 
         // 햄버거 추가
         hamburgerMenus.add(new HamburgerMenu(1,"ShackBurger ", 6.9 , " 토마토, 양상추, 쉑소스가 토핑된 치즈버거" ));
