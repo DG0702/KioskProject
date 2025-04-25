@@ -5,7 +5,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-public class Kiosk <T>  {
+public class Kiosk  {
 
     // 입력 값을 받는 객체 생성
     Scanner sc = new Scanner(System.in);
