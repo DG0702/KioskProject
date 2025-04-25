@@ -1,0 +1,61 @@
+package lv7;
+
+public class DesertMenu implements MenuItem {
+    // 속성
+    private int number;
+    private String desertName;
+    private double price;
+    private String description;
+
+    // 생성자
+    DesertMenu(int number, String desertName, double price, String description) {
+        this.number = number;
+        this.desertName = desertName;
+        this.price = price;
+        this.description = description;
+    }
+
+    // 메뉴 (디저트) 번호
+    public int getNumber(){
+        return number;
+    }
+
+    // 메뉴 (디저트) 이름
+    public String getDesertName(){
+        return desertName;
+    }
+
+    // 메뉴 (디저트) 가격
+    public double getPrice(){
+        return price;
+    }
+
+    // 메뉴 (디저트) 설명
+    public String getDescription(){
+        return description;
+    }
+
+    // 메뉴 (디저트) 출력
+    @Override
+    public String getMenu(){
+        return "선택한 메뉴 : " + getNumber() + "번" +
+                " 디저트 : " + getDesertName() +
+                " 가격 : " + getPrice() +
+                " 설명 : " + getDescription();
+    }
+
+    @Override
+    public String getMenuName(){
+        return getDesertName();
+    }
+
+    @Override
+    public double getMenuPrice(){
+        return getPrice();
+    }
+
+    @Override
+    public String getMenuDescription(){
+        return getDescription();
+    }
+}
