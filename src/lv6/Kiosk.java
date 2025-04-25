@@ -5,19 +5,25 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-public class Kiosk {
+public class Kiosk <T>  {
 
     // 입력 값을 받는 객체 생성
     Scanner sc = new Scanner(System.in);
 
     // 속성
-    List<CategoryMenu> categoryMenus = new ArrayList<>();
     
+    // 카테고리 메뉴
+    List<CategoryMenu> categoryMenus = new ArrayList<>();
+
+
     // 카테고리 번호
     int categoryNum ;
 
     // 메뉴 번호
     int menuNum ;
+
+    // 장바구니 번호
+    int cartNum;
 
     // 생성자
     Kiosk(List<CategoryMenu> categoryMenus){
@@ -58,9 +64,20 @@ public class Kiosk {
                     } else if (menuNum == 0) {
                         break;
                     }
+                    
+                    // 선택한 메뉴
                     categoryMenus.get(categoryNum - 1).getMenu(menuNum);
-                    break;
+                    System.out.println("위 메뉴를 장바구니에 추가하시겠습니까? (1 : 확인 , 2 : 취소(뒤로가기)");
+                    cartNum = sc.nextInt();
+                    if(cartNum >= 2){
+                        break;
+                    }
+                    // 공통 타입으로 변환 (어떤 메뉴를 고르지 모르기 때문에 공통타입으로 설정)
+                    MenuItem menu = (MenuItem) categoryMenus.get(categoryNum - 1).getCategoryList().get(menuNum-1);
 
+                    // 장바구니 객체 생성 -> (장바구니 안에 메뉴 넣기)
+                    ShoppingCart cartItems = new ShoppingCart(menu);
+                    System.out.println(cartItems.getMenuName() + "이 장바구니에 추가되었습니다.");
                 }
 
             } while (true);

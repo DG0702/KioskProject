@@ -1,12 +1,15 @@
 package lv6;
 
-public class BeverageMenu implements MenuItem{
+import java.util.List;
+
+public class BeverageMenu <T> implements MenuItem{
 
     // 속성
     private int number;
     private String beverageName;
     private double price;
     private String description;
+
 
     // 생성자
     BeverageMenu(int number, String beverageName, double price, String description){
@@ -36,6 +39,7 @@ public class BeverageMenu implements MenuItem{
         return description;
     }
 
+
     // 메뉴(음료) 출력
     @Override
     public String getMenu(){
@@ -44,5 +48,30 @@ public class BeverageMenu implements MenuItem{
                 " 가격 : " + getPrice() +
                 " 설명 : " + getDescription();
     }
+
+    // 메뉴(음료) 이름
+    @Override
+    public String getMenuName(){
+        return getBeverageName();
+    }
+
+    // 메뉴(음료) 가격
+    @Override
+    public double getMenuPrice(){
+        return getPrice();
+    }
+
+
+    // 메뉴(음료) 설명
+    @Override
+    public String getMenuDescription(){
+        return getDescription();
+    }
+
+
+
+
+
+
 
 }

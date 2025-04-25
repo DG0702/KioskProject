@@ -1,6 +1,8 @@
 package lv6;
 
-public class HamburgerMenu implements MenuItem {
+import java.util.List;
+
+public class HamburgerMenu <T> implements MenuItem {
     // 속성
     private int number;
     private String hamburgerName;
@@ -36,13 +38,35 @@ public class HamburgerMenu implements MenuItem {
         return description;
     }
 
+
+
+
     // 메뉴(햄버거) 출력
     @Override
     public String getMenu(){
         return "선택한 메뉴 : " + getNumber() + "번" +
                 " 햄버거 : " + getHamburgerName() +
                 " 가격 : " + getprice() +
-                " 설명 : " + getDescription();
+                " 설명 : " + getDescription() ;
     }
+
+    // 메뉴(햄버거) 이름
+    @Override
+    public String getMenuName(){
+        return getHamburgerName();
+    }
+
+    // 메뉴(햄버거) 가격
+    @Override
+    public double getMenuPrice(){
+        return getprice();
+    }
+
+    // 메뉴(햄버거) 설명
+    @Override
+    public String getMenuDescription(){
+        return getDescription();
+    }
+
 
 }
