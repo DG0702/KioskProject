@@ -1,9 +1,6 @@
 package lv6;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ShoppingCart {
     // 속성
 
