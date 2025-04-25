@@ -1,6 +1,5 @@
 package lv6;
 
-import java.util.List;
 
 public class HamburgerMenu  implements MenuItem {
     // 속성

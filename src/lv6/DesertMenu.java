@@ -1,6 +1,6 @@
 package lv6;
 
-public class DesertMenu <T> implements MenuItem{
+public class DesertMenu  implements MenuItem{
 
     // 속성
     private int number;
