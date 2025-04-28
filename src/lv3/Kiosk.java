@@ -13,6 +13,8 @@ public class Kiosk {
 
     // 메뉴 추가하는 리스트
     List<MenuItem> menuItems = new ArrayList<>();
+    
+    // 메뉴 번호
     int choice ;
 
 
@@ -35,8 +37,9 @@ public class Kiosk {
                 }
                 System.out.println("0. 종료      | 종료");
                 System.out.println("메뉴 번호를 선택해주세요 (0,1,2,3,4)");
+                
+                // 메뉴 번호
                 choice = sc.nextInt();
-
                 if(choice == 0){
                     System.out.println("0. 종료      | 종료");
                     // 현재 메서드를 종료 - return
@@ -47,7 +50,7 @@ public class Kiosk {
                 }
                 
                 // 선택한 메뉴 출력
-                menuItems.get(choice-1).getMenuItem();
+                System.out.println(menuItems.get(choice-1).getMenu());
             } while (true);
         } catch (InputMismatchException e) {
             throw new InputMismatchException("메뉴번호를 선택해주세요");
