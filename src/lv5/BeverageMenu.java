@@ -1,11 +1,12 @@
-package lv4;
+package lv5;
 
 public class BeverageMenu implements MenuItem{
-    // 속성
+    // 속성(필드) -> 캡슐화
     private int number;
     private String beverageName;
     private double price;
     private String description;
+
 
     // 생성자
     BeverageMenu(int number, String beverageName, double price, String description) {
@@ -14,7 +15,7 @@ public class BeverageMenu implements MenuItem{
         this.price = price;
         this.description = description;
     }
-    
+
     // 메뉴 (음료) 번호
     public int getNumber() {
         return number;
@@ -39,8 +40,9 @@ public class BeverageMenu implements MenuItem{
     @Override
     public String getMenu(){
         return "선택한 메뉴 : " + getNumber() + "번" +
-                " 햄버거 : " + getBeverageName() +
+                " 음료 : " + getBeverageName() +
                 " 가격 : " + getPrice() +
-                " 설명 :" +getDescription();
+                " 설명 : " +getDescription();
     }
+
 }
