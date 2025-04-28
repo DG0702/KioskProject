@@ -184,7 +184,7 @@ public class MenuItem {
 ### [LV5️⃣] 캡슐화 적용하기
 
 - 🎈 캡슐화 적용하기 
-  - `MenuItem`, `Menu`, `Kiosk` 클래스의 필드에 직접 접근하지 못하도록 설정 
+  - 📍 `MenuItem`, `Menu`, `Kiosk` 클래스의 필드에 직접 접근하지 못하도록 설정 
 
 <br>
 
