@@ -12,7 +12,7 @@ public class Kiosk {
     Scanner sc = new Scanner(System.in);
 
     // 메뉴 추가하는 리스트
-    List<MenuItem> menuItems = new ArrayList<>();
+    List<MenuItem> menuItems;
     
     // 메뉴 번호
     int choice ;
