@@ -39,8 +39,8 @@ public class BeverageMenu implements MenuItem{
     @Override
     public String getMenu(){
         return "선택한 메뉴 : " + getNumber() + "번" +
-                " 햄버거 : " + getBeverageName() +
-                " 가격 : " + getPrice() +
-                " 설명 :" +getDescription();
+                "   | 햄버거 : " + getBeverageName() +
+                "   | 가격 : " + getPrice() +
+                "   | 설명 :" +getDescription();
     }
 }

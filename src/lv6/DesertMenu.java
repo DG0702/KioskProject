@@ -40,9 +40,9 @@ public class DesertMenu  implements MenuItem{
     @Override
     public String getMenu(){
         return "선택한 메뉴 : " + getNumber() + "번" +
-                " 디저트 : " + getDesertName() +
-                " 가격 : " + getPrice() +
-                " 설명 : " + getDescription();
+                "   | 디저트 : " + getDesertName() +
+                "   | 가격 : " + getPrice() +
+                "   | 설명 : " + getDescription();
     }
 
     @Override

@@ -18,7 +18,7 @@ public class CategoryMenu <T extends MenuItem>{
 
 
 
-    // getter
+    // 카테고리 메뉴
     public List<T> getCategoryList() {
         return categoryList;
     }
