@@ -41,16 +41,9 @@ public class MenuItem {
         return description;
     }
 
-    // 메뉴 종류 출력
-    public void getMenuItem(){
-        System.out.println("햄버거 = " + getMenuName());
-        System.out.println("가격 = " + getPrice());
-        System.out.println("설명 = " + getDescription());
-    }
-
-    // 선택한 메뉴 출력
+    // 메뉴판 , 선택한 메뉴 출력
     public String getMenu (){
-        return   getNumber() + "번 " +
+        return  "선택한 메뉴 : " + getNumber() + "번 " +
                 "햄버거 : " + getMenuName() +
                 " 가격 : " + getPrice() +
                 " 설명 :" +getDescription();

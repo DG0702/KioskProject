@@ -22,6 +22,7 @@ public class Main {
         // Scanner 선언
         Scanner sc = new Scanner(System.in);
 
+        // 메뉴 선택 번호
         int choice;
 
 
@@ -36,8 +37,9 @@ public class Main {
                 }
                 System.out.println("0. 종료      | 종료");
                 System.out.println("메뉴 번호를 선택해주세요 (0,1,2,3,4)");
-                choice = sc.nextInt();
 
+                // 메뉴 번호
+                choice = sc.nextInt();
                 if(choice == 0){
                     System.out.println("0. 종료      | 종료");
                     // 현재 메서드를 종료 - return
@@ -46,8 +48,9 @@ public class Main {
                     System.out.println("메뉴 번호를 선택해주세요 (1,2,3,4)");
                     continue;
                 }
+
                 // 선택한 메뉴 출력
-                menuItems.get(choice-1).getMenuItem();
+                System.out.println(menuItems.get(choice-1).getMenu());
 
             } while (true);
         } catch (InputMismatchException e) {
