@@ -5,7 +5,7 @@ import lv7.MenuItem;
 public class ShoppingCart {
     // 속성
     private lv7.MenuItem menu;
-    private double sum;
+
 
     // 생성자
     ShoppingCart(MenuItem menu){

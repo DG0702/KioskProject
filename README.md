@@ -422,4 +422,4 @@ KioskProject/
 ```
 
 ## ✨ 트러블 슈팅 정리
-- **[Velog에서 확인]()**
+- **[Velog에서 확인](https://velog.io/@dkzh506/Java-%ED%82%A4%EC%98%A4%EC%8A%A4%ED%81%AC-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8)**

@@ -4,7 +4,6 @@ package lv6;
 public class ShoppingCart  {
     // 속성
     private MenuItem menu;
-    private double sum;
 
     // 생성자
     ShoppingCart(MenuItem menu){

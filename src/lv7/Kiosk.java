@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Kiosk {
     // 입력 값을 받는 객체 생성
@@ -16,7 +17,7 @@ public class Kiosk {
     // 속성
 
     // 카테고리 메뉴
-    List<lv7.CategoryMenu> categoryMenus = new ArrayList<>();
+    List<lv7.CategoryMenu> categoryMenus;
 
     // 장바구니 목록
     List<lv7.ShoppingCart> cartItems = new ArrayList<>();
@@ -121,11 +122,18 @@ public class Kiosk {
                     orderNum = sc.nextInt();
                     if (orderNum >= 3) {
                         continue;
-                    } else if (orderNum == 2) {
+                    } 
+                    
+                    // 특정 메뉴 빼기
+                    else if (orderNum == 2) {
                         this.cartItems.forEach(cart -> System.out.println(cart.getMenu()));
                         System.out.println("무슨 메뉴를 빼시겠어요?");
                         removeNum = sc.nextInt();
-                        cartItems.remove(removeNum-1);
+                        // 메뉴 삭제
+                        // cartItems.remove(removeNum-1); -> 더 간단함
+                        cartItems = cartItems.stream()
+                                .filter(item -> cartItems.indexOf(item) != removeNum -1)
+                                .collect(Collectors.toList());
                         this.cartItems.forEach(cart -> System.out.println(cart.getMenu()));
                         continue;
                     }

@@ -13,7 +13,7 @@ public class Kiosk  {
     // 속성
     
     // 카테고리 메뉴
-    List<CategoryMenu> categoryMenus = new ArrayList<>();
+    List<CategoryMenu> categoryMenus;
 
     // 장바구니 목록
     List<ShoppingCart> cartItems = new ArrayList<>();
