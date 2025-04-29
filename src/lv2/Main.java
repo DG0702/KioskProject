@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Main {
 
     // 메뉴 추가 리스트 생성
-    static List<MenuItem> menuItems = new ArrayList<>();
+    private static List<MenuItem> menuItems = new ArrayList<>();
 
     
     // main 메서드
@@ -49,7 +49,7 @@ public class Main {
 
 
     // 메뉴 출력 메서드
-    public static void printMenu(){
+    private static void printMenu(){
         System.out.println();
         System.out.println("[SHAKESHACK MENU]");
         // 메뉴 종류 출력
