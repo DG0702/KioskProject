@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-
+    
+    // 메뉴 리스트
     private static final List<String> menus = List.of(
             "1. ShackBurger   | W 6.9 | 토마토, 양상추, 쉑소스가 토핑된 치즈버거",
             "2. SmokeShack    | W 8.9 | 베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거",
@@ -14,6 +15,7 @@ public class Main {
             "0. 종료      | 종료"
     );
 
+    // 메뉴 출력 메서드
     private static void printMenu(){
         System.out.println();
         System.out.println("[SHAKESHACK MENU]");
@@ -23,6 +25,7 @@ public class Main {
         System.out.println("메뉴 번호를 선택해주세요 (0,1,2,3,4)");
     }
 
+    // 메뉴 선택 시 출력 메서드
     private static void choiceMenu(int choice){
         switch (choice){
             case 1 -> System.out.println("1. ShackBurger   | W 6.9 | 토마토, 양상추, 쉑소스가 토핑된 치즈버거");
@@ -44,8 +47,13 @@ public class Main {
         int choice;
             try {
                 do {
+                    // 메뉴 출력
                     printMenu();
+                    
+                    // 번호 선택
                     choice = sc.nextInt();
+                    
+                    // 메뉴 출력
                     choiceMenu(choice);
                 } while (choice != 0);
             } catch (InputMismatchException e) {
