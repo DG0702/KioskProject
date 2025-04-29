@@ -16,11 +16,11 @@ public class Kiosk {
     private int categoryNum;
 
     // 생성자
-    public Kiosk(List<CategoryMenu<MenuItem>> categoryMenus) {
+    Kiosk(List<CategoryMenu<MenuItem>> categoryMenus) {
         this.categoryMenus = categoryMenus;
     }
 
-    // 기능
+    // 키오스크 사용 메서드
     public void start(){
         try {
             do {
@@ -30,6 +30,7 @@ public class Kiosk {
                 categoryNum = sc.nextInt();
 
                 if(categoryNum == 0){
+                    System.out.println("주문 종료");
                     break;
                 }
                 else if(categoryNum <= categoryMenus.size()){
@@ -57,7 +58,7 @@ public class Kiosk {
         System.out.println();
         System.out.println("[SHAKESHACK CATEGORY MENU] 번호를 골라주세요 / 0 입력 시 종료");
 
-        // 카테고리 메뉴 (1. 햄버거, 2 음료 ...)
+        // 카테고리 메뉴
         for(CategoryMenu<MenuItem> categoryMenu : categoryMenus){
             System.out.println(categoryMenu.getNumber() + "번 " + categoryMenu.getCategoryName());
         }
@@ -82,9 +83,8 @@ public class Kiosk {
             if(menuNum == 0){
                 break;
             }
-
             // 리스트 안에 객체가 존재하고 -> 그 객체가 리스트 형태로 존재
-            if(menuNum <= categoryMenus.get(categoryNum-1).getCategoryList().size()){
+            else if(menuNum <= categoryMenus.get(categoryNum-1).getCategoryList().size()){
                 // 선택한 카테고리 메뉴 출력 (고른 메뉴)
                 categoryMenus.get(categoryNum - 1).selectMenu(menuNum);
                 break;

@@ -51,8 +51,8 @@ public class HamburgerMenu implements MenuItem{
     @Override
     public String selectMenu(){
         return "선택한 메뉴 : " + getNumber() + "번" +
-                "   | 햄버거 : " + getHamburgerName() +
-                "   | 가격 : " + getPrice() +
-                "   | 설명 :" +getDescription();
+                "   |  햄버거 : " + getHamburgerName() +
+                "   |  가격 : " + getPrice() +
+                "   |  설명 :" +getDescription();
     }
 }

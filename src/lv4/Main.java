@@ -26,9 +26,6 @@ public class Main {
         // 키오스크에 카테고리 추가
         Kiosk kiosk = new Kiosk(categoryMenus);
 
-        // 키오스크에 카테고리 메뉴 추가
-//        Kiosk.setCategoryMenus(categoryMenus);
-
         kiosk.start();
     }
 
