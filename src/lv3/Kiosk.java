@@ -14,9 +14,6 @@ public class Kiosk {
 
     // 메뉴 추가하는 리스트
     private List<MenuItem> menuItems;
-    
-    // 메뉴 번호
-    private int choice ;
 
     public Kiosk(List<MenuItem> menuItems) {
         this.menuItems = menuItems;
@@ -26,6 +23,8 @@ public class Kiosk {
     // 키오스크 사용 메서드
     public void start(){
         try {
+            // 메뉴 번호
+            int choice;
             do {
                 // 메뉴 출력 메서드
                 printMenu();
