@@ -13,15 +13,13 @@ public class Kiosk {
 
 
     // 메뉴 추가하는 리스트
-    static List<MenuItem> menuItems;
+    private List<MenuItem> menuItems;
     
     // 메뉴 번호
-    int choice ;
+    private int choice ;
 
-    
-    // 키오스크에 리스트 추가 (정적 필드를 사용하기 때문에 사용)
-    public static void setMenuItems(List<MenuItem> menuItems) {
-        Kiosk.menuItems = menuItems;
+    public Kiosk(List<MenuItem> menuItems) {
+        this.menuItems = menuItems;
     }
 
     
@@ -52,7 +50,7 @@ public class Kiosk {
 
     
     // 메뉴 출력하는 메서드
-    private static void printMenu(){
+    private void printMenu(){
         System.out.println();
         System.out.println("[SHAKESHACK MENU]");
 
@@ -65,7 +63,7 @@ public class Kiosk {
     }
 
     // 선택한 메뉴 출력
-    private static void choiceMenu(int choice){
+    private void choiceMenu(int choice){
         // 선택한 메뉴 출력
         if(choice == 0){
             return;

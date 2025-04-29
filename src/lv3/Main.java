@@ -7,7 +7,7 @@ import java.util.List;
 public class Main {
     
     // 메뉴 추가 리스트
-    static List<MenuItem> menuItems = new ArrayList<>();
+    private static List<MenuItem> menuItems = new ArrayList<>();
 
     // main 메서드
     public static void main(String[] args) {
@@ -16,10 +16,7 @@ public class Main {
         initializeMenu();
 
         // 키오스크 객체를 인스턴스화
-        Kiosk kiosk = new Kiosk();
-        
-        // 키오스크에 메뉴 설정
-        Kiosk.setMenuItems(menuItems);
+        Kiosk kiosk = new Kiosk(menuItems);
         
         // 키오스크 실행
         kiosk.start();
