@@ -24,6 +24,7 @@ public class Kiosk {
     public void start(){
         try {
             do {
+                // 카테고리 메뉴 출력
                 printCategoryMenu();
 
                 // 카테고리 번호 고르기

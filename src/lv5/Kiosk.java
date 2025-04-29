@@ -24,6 +24,7 @@ public class Kiosk {
     public void start(){
         try {
             do {
+                // 카테고리 메뉴출력
                 printCategoryMenu();
 
                 // 카테고리 번호
@@ -81,7 +82,7 @@ public class Kiosk {
                 break;
             }
             // 리스트 안에 객체가 존재하고 -> 그 객체가 리스트 형태로 존재
-            if(menuNum <= categoryMenus.get(categoryNum -1).getCategoryList().size()){
+            else if(menuNum <= categoryMenus.get(categoryNum -1).getCategoryList().size()){
                 // 선택한 카테고리 메뉴 출력 (고른 메뉴)
                 categoryMenus.get(categoryNum -1).selectMenu(menuNum);
                 break;
