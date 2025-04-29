@@ -35,15 +35,15 @@ public class CategoryMenu <T extends MenuItem>{
 
 
     // 카테고리별 메뉴 출력 (메뉴판)
-    public void getCategory(){
+    public void showCategory(){
         for(T categoryListMenu : categoryList) {
-            System.out.println(categoryListMenu.getMenu());
+            System.out.println(categoryListMenu.showMenu());
         }
     }
 
     // 선택한 카테고리 메뉴 출력 (고른 메뉴)
-    public void getMenu(int menuNum){
-        System.out.println(getCategoryList().get(menuNum-1).getMenu());
+    public void selectMenu(int menuNum){
+        System.out.println(getCategoryList().get(menuNum-1).selectMenu());
     }
 
 

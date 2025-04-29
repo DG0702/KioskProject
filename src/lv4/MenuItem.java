@@ -1,5 +1,6 @@
 package lv4;
 
 public interface MenuItem {
-    String getMenu();
+    String showMenu();
+    String selectMenu();
 }

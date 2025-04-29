@@ -35,11 +35,20 @@ public class BeverageMenu implements MenuItem{
         return description;
     }
 
+    // 메뉴판
+    @Override
+    public String showMenu(){
+        return  getNumber() + "번 " +
+                "   |   음료 : " + getBeverageName() +
+                "   |   가격 : " + getPrice() +
+                "   |   설명 :" +getDescription();
+    }
+
     // 메뉴 출력
     @Override
-    public String getMenu(){
+    public String selectMenu(){
         return "선택한 메뉴 : " + getNumber() + "번" +
-                "   | 햄버거 : " + getBeverageName() +
+                "   | 음료 : " + getBeverageName() +
                 "   | 가격 : " + getPrice() +
                 "   | 설명 :" +getDescription();
     }
