@@ -41,6 +41,7 @@ public class MenuItem {
         return description;
     }
 
+    // 메뉴판
     public String showMenu(){
         return  getNumber() + "번 " +
                 "   |   햄버거 : " + getMenuName() +
@@ -48,7 +49,7 @@ public class MenuItem {
                 "   |   설명 :" +getDescription();
     }
 
-    // 메뉴 종류 출력(메뉴판) , 선택한 메뉴 출력
+    // 선택한 메뉴 출력
     public String selectMenu (){
         return  "선택한 메뉴 : " + getNumber() + "번 " +
                 "   |  햄버거 : " + getMenuName() +
