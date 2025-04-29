@@ -38,13 +38,13 @@ public class CategoryMenu <T extends  MenuItem> {
     // 카테고리별 메뉴 출력
     public void getCategory(){
         for(T categoryListMenu : categoryList){
-            System.out.println(categoryListMenu.getMenu());
+            System.out.println(categoryListMenu.showMenu());
         }
     }
 
     // 선택한 카테고리에서 메뉴 출력
     public void getMenu(int menuNum){
-        System.out.println(getCategoryList().get(menuNum - 1).getMenu());
+        System.out.println(getCategoryList().get(menuNum - 1).selectMenu());
     }
 
 

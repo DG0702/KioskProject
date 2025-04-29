@@ -26,7 +26,7 @@ public class ShoppingCart  {
     }
 
     // 장바구니 주문 목록
-    public String getMenu (){
+    public String showOrderList (){
         return "주문목록 : " + getMenuName() + "   |  가격 : " + getMenuPrice() + "   | 설명 : " + getMenuDescription();
     }
     
