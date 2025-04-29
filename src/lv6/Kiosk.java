@@ -17,9 +17,6 @@ public class Kiosk  {
     // 장바구니 목록
     private List<ShoppingCart> cartItems = new ArrayList<>();
 
-    // 총 가격
-
-    
     // 카테고리 번호
     private int categoryNum ;
 
