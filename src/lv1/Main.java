@@ -12,20 +12,21 @@ public class Main {
         // 입력 값을 받는 객체 생성
         Scanner sc = new Scanner(System.in);
         int choice;
-            try {
-                do {
-                    // 메뉴 출력
-                    printMenu();
-                    
-                    // 번호 선택
-                    choice = sc.nextInt();
-                    
-                    // 메뉴 출력
-                    choiceMenu(choice);
-                } while (choice != 0);
-            } catch (InputMismatchException e) {
-                throw new InputMismatchException("메뉴번호를 선택해주세요");
-            }
+
+        try {
+            do {
+                // 메뉴 출력
+                printMenu();
+
+                // 번호 선택
+                choice = sc.nextInt();
+
+                // 메뉴 출력
+                choiceMenu(choice);
+            } while (choice != 0);
+        } catch (InputMismatchException e) {
+            throw new InputMismatchException("메뉴번호를 선택해주세요");
+        }
 
     }
 
