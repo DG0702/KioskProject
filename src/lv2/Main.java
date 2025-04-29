@@ -54,7 +54,7 @@ public class Main {
         System.out.println("[SHAKESHACK MENU]");
         // 메뉴 종류 출력
         for(MenuItem menuItem : menuItems) {
-            System.out.println(menuItem.getMenu());
+            System.out.println(menuItem.showMenu());
         }
         System.out.println("0. 종료      | 종료");
         System.out.println("메뉴 번호를 선택해주세요 (0,1,2,3,4)");
@@ -72,7 +72,10 @@ public class Main {
     // 선택한 메뉴 출력 메서드 
     private static void choiceMenu(int choice){
         // 메뉴 선택
-        System.out.println(menuItems.get(choice-1).getMenu());
+        if(choice == 0){
+            return;
+        }
+        System.out.println(menuItems.get(choice-1).selectMenu());
     }
 }
 
