@@ -5,7 +5,30 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    
+
+
+    public static void main(String[] args) {
+
+        // 입력 값을 받는 객체 생성
+        Scanner sc = new Scanner(System.in);
+        int choice;
+            try {
+                do {
+                    // 메뉴 출력
+                    printMenu();
+                    
+                    // 번호 선택
+                    choice = sc.nextInt();
+                    
+                    // 메뉴 출력
+                    choiceMenu(choice);
+                } while (choice != 0);
+            } catch (InputMismatchException e) {
+                throw new InputMismatchException("메뉴번호를 선택해주세요");
+            }
+
+    }
+
     // 메뉴 리스트
     private static final List<String> menus = List.of(
             "1. ShackBurger   | W 6.9 | 토마토, 양상추, 쉑소스가 토핑된 치즈버거",
@@ -37,30 +60,5 @@ public class Main {
 
             default -> System.out.println("메뉴 번호를 선택해주세요 (1,2,3,4)");
         }
-    }
-
-
-    public static void main(String[] args) {
-
-        // 입력 값을 받는 객체 생성
-        Scanner sc = new Scanner(System.in);
-        int choice;
-            try {
-                do {
-                    // 메뉴 출력
-                    printMenu();
-                    
-                    // 번호 선택
-                    choice = sc.nextInt();
-                    
-                    // 메뉴 출력
-                    choiceMenu(choice);
-                } while (choice != 0);
-            } catch (InputMismatchException e) {
-                throw new InputMismatchException("메뉴번호를 선택해주세요");
-            }
-
-
-
     }
 }
