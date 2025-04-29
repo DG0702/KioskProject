@@ -141,7 +141,7 @@ public class Kiosk  {
 
     // 메뉴 선택
     private void getSelectMenu(){
-        while (true) {
+        while(true) {
             System.out.println("메뉴를 선택해주세요 / '0' 입력 시 뒤로가기 ");
 
             // 메뉴 번호
@@ -188,11 +188,11 @@ public class Kiosk  {
 
                 // 장바구니 안에 메뉴 넣기 (여러 종류 -> 리스트 형태)
                 cartItems.add(Items);
-                System.out.println(cartItems.get(cartItems.size()-1).getMenuName() + "이 장바구니에 추가되었습니다.");
+                System.out.println(cartItems.get(cartItems.size()-1).getMenuName() + "가 장바구니에 추가되었습니다.");
                 break;
             }
 
-            System.out.println("1번, 2번 중에 선택해주세요");
+            System.out.println("1번, 2번 중에 선택 해주세요");
         }
     }
 
