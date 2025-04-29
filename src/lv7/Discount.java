@@ -8,7 +8,7 @@ public enum Discount {
 
 
     // 속성
-    private int number;
+    private final int number;
 
     // 생성자
     Discount(int number){

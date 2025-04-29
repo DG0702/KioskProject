@@ -38,14 +38,14 @@ public class CategoryMenu <T extends MenuItem> {
 //        }
 
         categoryList.stream()
-                .map(MenuItem::getMenu)
+                .map(MenuItem::showMenu)
                 .forEach(System.out::println);
 
     }
 
     // 선택한 카테고리에서 메뉴 출력
     public void getMenu(int menuNum){
-        System.out.println(getCategoryList().get(menuNum - 1).getMenu());
+        System.out.println(getCategoryList().get(menuNum - 1).selectMenu());
     }
 
 }
