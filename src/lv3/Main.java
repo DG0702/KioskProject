@@ -7,7 +7,7 @@ import java.util.List;
 public class Main {
     
     // 메뉴 추가 리스트
-    private static List<MenuItem> menuItems = new ArrayList<>();
+    private static final List<MenuItem> menuItems = new ArrayList<>();
 
     // main 메서드
     public static void main(String[] args) {

@@ -13,7 +13,7 @@ public class Kiosk {
 
 
     // 메뉴 추가하는 리스트
-    private List<MenuItem> menuItems;
+    private final List<MenuItem> menuItems;
 
     public Kiosk(List<MenuItem> menuItems) {
         this.menuItems = menuItems;
