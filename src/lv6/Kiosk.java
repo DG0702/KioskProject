@@ -24,7 +24,7 @@ public class Kiosk  {
     private int menuNum ;
 
     // 메뉴 뒤로가기
-    boolean check ;
+    private boolean check ;
 
 
     // 생성자
