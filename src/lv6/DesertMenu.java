@@ -3,10 +3,10 @@ package lv6;
 public class DesertMenu  implements MenuItem{
 
     // 속성
-    private int number;
-    private String desertName;
-    private double price;
-    private String description;
+    private final int number;
+    private final String desertName;
+    private final double price;
+    private final String description;
 
     // 생성자
     DesertMenu(int number, String desertName, double price, String description) {

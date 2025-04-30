@@ -5,9 +5,9 @@ import java.util.List;
 public class CategoryMenu <T extends  MenuItem> {
 
     // 속성
-    private int number;
-    private String categoryName;
-    private List<T> categoryList;
+    private final int number;
+    private final String categoryName;
+    private final List<T> categoryList;
 
     // 생성자
     CategoryMenu(int number, String categoryName, List<T> categoryList){

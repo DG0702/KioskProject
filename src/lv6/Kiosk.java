@@ -12,16 +12,19 @@ public class Kiosk  {
 
     
     // 카테고리 메뉴
-    private List<CategoryMenu<MenuItem>> categoryMenus;
+    private final List<CategoryMenu<MenuItem>> categoryMenus;
 
     // 장바구니 목록
-    private List<ShoppingCart> cartItems = new ArrayList<>();
+    private final List<ShoppingCart> cartItems = new ArrayList<>();
 
     // 카테고리 번호
     private int categoryNum ;
 
     // 메뉴 번호
     private int menuNum ;
+
+    // 메뉴 뒤로가기
+    boolean check ;
 
 
     // 생성자
@@ -67,8 +70,16 @@ public class Kiosk  {
                 // 메뉴판
                 printMenu(categoryNum);
 
+                // check 기본값
+                check = true;
+
                 // 메뉴 번호 고르기
                 getSelectMenu();
+                
+                // 뒤로가기 했을 경우
+                if(!check){
+                    continue;
+                }
 
                 // 장바구니 추가여부
                 getShoppingCart();
@@ -100,35 +111,47 @@ public class Kiosk  {
 
     // 장바구니 출력
     private void printShoppingCart(){
-        // 총 가격
-        double sumPrice = 0;
+        while (true) {
+            // 총 가격
+            double sumPrice = 0;
 
-        // 주문을 할 경우
-        System.out.println("아래와 같이 주문 하시겠습니까?");
-        System.out.println("[Orders]");
+            // 주문을 할 경우
+            System.out.println();
+            System.out.println("아래와 같이 주문 하시겠습니까?");
+            System.out.println("[Orders]");
 
-        // 장바구니에 담긴 메뉴 출력
-        for(ShoppingCart cart : this.cartItems){
-            System.out.println(cart.showOrderList());
+            // 장바구니에 담긴 메뉴 출력
+            for(ShoppingCart cart : this.cartItems){
+                System.out.println(cart.showOrderList());
+            }
+            System.out.println();
+            System.out.println("[Total]");
+            for(ShoppingCart cart : this.cartItems){
+                double price = cart.getMenuPrice();
+                sumPrice += price;
+            }
+            System.out.println("W : " + sumPrice);
+
+            System.out.println();
+            System.out.println("1. 주문  | 2. 메뉴판");
+
+            // 주문 번호
+            int orderNum = sc.nextInt();
+            
+            // 2번 입력 시 (뒤로가기)
+            if(orderNum == 2){
+                break;
+            } 
+            
+            // 1번 입력 시
+            else if (orderNum == 1) {
+                System.out.println("주문이 완료되었습니다 금액은 W : " + sumPrice + " 입니다");
+                cartItems.clear();
+                break;
+            }
+
+            System.out.println("1번 , 2번 중에 선택 해주세요");
         }
-        System.out.println();
-        System.out.println("[Total]");
-        for(ShoppingCart cart : this.cartItems){
-            double price = cart.getMenuPrice();
-            sumPrice += price;
-        }
-        System.out.println("W : " + sumPrice);
-
-        System.out.println();
-        System.out.println("1. 주문  | 2. 메뉴판");
-
-        // 주문 번호
-        int orderNum = sc.nextInt();
-        if(orderNum >= 2){
-            return;
-        }
-        System.out.println("주문이 완료되었습니다 금액은 W : " + sumPrice + " 입니다");
-        cartItems.clear();
     }
 
 
@@ -148,6 +171,8 @@ public class Kiosk  {
             menuNum = sc.nextInt();
 
             if(menuNum == 0){
+                // 뒤로가기
+                check = false;
                 break;
             }
 

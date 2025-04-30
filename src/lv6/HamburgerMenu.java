@@ -3,10 +3,10 @@ package lv6;
 
 public class HamburgerMenu  implements MenuItem {
     // 속성
-    private int number;
-    private String hamburgerName;
-    private double price;
-    private String description;
+    private final int number;
+    private final String hamburgerName;
+    private final double price;
+    private final String description;
 
 
     // 생성자

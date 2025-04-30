@@ -3,7 +3,7 @@ package lv6;
 
 public class ShoppingCart  {
     // 속성
-    private MenuItem menu;
+    private final MenuItem menu;
 
     // 생성자
     ShoppingCart(MenuItem menu){
