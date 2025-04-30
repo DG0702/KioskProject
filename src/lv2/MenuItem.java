@@ -6,10 +6,10 @@ public class MenuItem {
     // 햄버거만 관리하는 클래스
 
     // 속성
-    private int number;
-    private String menuName ;
-    private double price;
-    private String description;
+    private final int number;
+    private final String menuName ;
+    private final double price;
+    private final String description;
 
     // 생성자
     MenuItem(int number,String menuName, double price, String description) {

@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Main {
 
     // 메뉴 추가 리스트 생성
-    private static List<MenuItem> menuItems = new ArrayList<>();
+    private static final List<MenuItem> menuItems = new ArrayList<>();
 
     
     // main 메서드
