@@ -10,7 +10,7 @@ public class Kiosk {
     Scanner sc = new Scanner(System.in);
 
     // 속성
-    private List<CategoryMenu<MenuItem>> categoryMenus;
+    private final List<CategoryMenu<MenuItem>> categoryMenus;
 
     // 카테고리 번호
     private int categoryNum;
