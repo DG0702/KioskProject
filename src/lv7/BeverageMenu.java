@@ -2,10 +2,10 @@ package lv7;
 
 public class BeverageMenu implements MenuItem{
     // 속성
-    private int number;
-    private String beverageName;
-    private double price;
-    private String description;
+    private final int number;
+    private final String beverageName;
+    private final double price;
+    private final String description;
 
 
     // 생성자
@@ -54,20 +54,21 @@ public class BeverageMenu implements MenuItem{
                 "   |   설명 : " + getDescription();
     }
 
-    // 메뉴(음료) 이름
+
+    // 장바구니(음료) 이름
     @Override
     public String getMenuName(){
         return getBeverageName();
     }
 
-    // 메뉴(음료) 가격
+    // 장바구니(음료) 가격
     @Override
     public double getMenuPrice(){
         return getPrice();
     }
 
 
-    // 메뉴(음료) 설명
+    // 장바구니(음료) 설명
     @Override
     public String getMenuDescription(){
         return getDescription();

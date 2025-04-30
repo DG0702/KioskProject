@@ -4,9 +4,9 @@ import java.util.List;
 
 public class CategoryMenu <T extends MenuItem> {
     // 속성
-    private int number;
-    private String categoryName;
-    private List<T> categoryList;
+    private final int number;
+    private final String categoryName;
+    private final List<T> categoryList;
 
     // 생성자
     CategoryMenu(int number, String categoryName, List<T> categoryList){
@@ -33,10 +33,6 @@ public class CategoryMenu <T extends MenuItem> {
 
     // 카테고리별 메뉴 출력
     public void getCategory(){
-//        for(T categoryListMenu : categoryList){
-//            System.out.println(categoryListMenu.getMenu());
-//        }
-
         categoryList.stream()
                 .map(MenuItem::showMenu)
                 .forEach(System.out::println);

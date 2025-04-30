@@ -5,6 +5,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Kiosk {
     // 입력 값을 받는 객체 생성
@@ -12,7 +13,7 @@ public class Kiosk {
 
 
     // 카테고리 메뉴
-    private List<CategoryMenu<MenuItem>> categoryMenus;
+    private final List<CategoryMenu<MenuItem>> categoryMenus;
 
     // 장바구니 목록
     private List<ShoppingCart> cartItems = new ArrayList<>();
@@ -23,6 +24,8 @@ public class Kiosk {
     // 메뉴 번호
     private int menuNum ;
 
+    // 메뉴 뒤로가기
+    private boolean check ;
 
 
     // 생성자
@@ -46,30 +49,48 @@ public class Kiosk {
                     break;
                 }
 
-                // 주문을 할 경우
-                else if (categoryNum == 4) {
-                    printShoppingCart();
+                // 장바구니에 메뉴를 담았을 때
+                if(!cartItems.isEmpty()){
+                    // 주문을 할 경우
+                    if (categoryNum == 4) {
+                        printShoppingCart();
+                        continue;
+                    }
+
+                    // 주문을 취소할 경우
+                    else if (categoryNum == 5) {
+                        cartItems.clear();
+                        System.out.println("주문이 취소 되었습니다.");
+                        continue;
+                    }
+
+                    // (1,2,3,4,5) 카테고리 메뉴에서 잘못 눌렸을 경우
+                    else if (categoryNum > 5) {
+                        System.out.println("번호를 선택해주세요 (1번 Burger, 2번 Drinks 3번 Desert 4번 Order 5번 Cancel)");
+                        continue;
+                    }
+                }
+
+                // (1,2,3) 카테고리 메뉴에서 잘못 눌렸을 경우
+                else if (categoryNum > 3) {
+                    System.out.println("번호를 선택해주세요 (1번 Burger, 2번 Drinks 3번 Desert)");
                     continue;
                 }
 
-                // 주문을 취소할 경우
-                else if (categoryNum == 5) {
-                    cartItems.clear();
-                    System.out.println("주문이 취소 되었습니다.");
-                    continue;
-                }
-
-                // 잘못 눌렸을 경우
-                else if (categoryNum > 5) {
-                    System.out.println("번호를 선택해주세요 (1번 Burger, 2번 Drinks 3번 미정 4번 Order 5번 Cancel)");
-                    continue;
-                }
 
                 // 메뉴판
                 printMenu(categoryNum);
 
+                // check 기본값
+                check = true;
+
                 // 메뉴 번호 고르기
                 getSelectMenu();
+
+                // 뒤로가기 했을 경우
+                if(!check){
+                    continue;
+                }
 
                 // 장바구니 추가여부
                 getShoppingCart();
@@ -110,13 +131,12 @@ public class Kiosk {
     // 장바구니 출력
     private void printShoppingCart(){
         while (true) {
-            // 총 가격
-
             System.out.println("아래와 같이 주문 하시겠습니까?");
             System.out.println("[Orders]");
 
-            // 장바구니에 담긴 메뉴 출력
-            cartItems.forEach(cart -> System.out.println(cart.showOrderList()));
+            // 장바구니에 담긴 메뉴 
+            IntStream.range(0,cartItems.size())
+                    .forEach(i -> System.out.println(cartItems.get(i).showOrderList(i + 1)));
 
             System.out.println();
             System.out.println("[Total]");
@@ -138,19 +158,23 @@ public class Kiosk {
             // 주문 번호
             int orderNum = sc.nextInt();
 
-            // 3
+            // 3번 입력시 (뒤로가기)
             if (orderNum == 3) {
                 break;
             }
 
-            // 특정 메뉴 빼기
+            // 2번 입력시
             else if (orderNum == 2) {
+                // 메뉴 삭제
                 removeMenu();
                 break;
             }
+
+            // 1번 입력시
             else if(orderNum == 1) {
                 // 할인 목록 출력
                 printDiscountMenu();
+
                 // 할인 번호
                 int discountNum = sc.nextInt();
 
@@ -170,18 +194,34 @@ public class Kiosk {
 
     // 특정 메뉴 빼기
     private void removeMenu(){
-        cartItems.forEach(cart -> System.out.println(cart.showOrderList()));
-        System.out.println("무슨 메뉴를 빼시겠어요?");
-        
-        // 제거할 메뉴 번호
-        int removeNum = sc.nextInt();
+        while (true) {
+            // 장바구니 담긴 메뉴
+            System.out.println();
+            IntStream.range(0,cartItems.size())
+                    .forEach(i -> System.out.println(cartItems.get(i).showOrderList(i + 1)));
+            System.out.println("무슨 메뉴를 빼시겠어요?");
 
-        // 메뉴 삭제
-        // cartItems.remove(removeNum-1); -> 더 간단함
-        cartItems = cartItems.stream()
-                .filter(item -> cartItems.indexOf(item) != removeNum -1)
-                .collect(Collectors.toList());
-        cartItems.forEach(cart -> System.out.println(cart.showOrderList()));
+
+            // 제거할 메뉴 번호
+            int removeNum = sc.nextInt();
+
+            if(cartItems.size() < removeNum || removeNum == 0){
+                System.out.println("알맞은 번호를 입력해주세요");
+                continue;
+            }
+
+            // 메뉴 삭제
+            // cartItems.remove(removeNum-1); -> 더 간단함
+            cartItems = cartItems.stream()
+                    .filter(item -> cartItems.indexOf(item) != removeNum -1)
+                    .collect(Collectors.toList());
+
+            // 장바구니 담긴 메뉴
+            IntStream.range(0,cartItems.size())
+                    .forEach(i -> System.out.println(cartItems.get(i).showOrderList(i + 1)));
+            break;
+
+        }
     }
 
 
@@ -209,6 +249,7 @@ public class Kiosk {
 
     // 할인 계산
     private void printDiscount(int discountNum, double sumPrice){
+
         // Discount 타입으로 (할인)
         Discount discount = Discount.getDiscount(discountNum);
 
@@ -240,6 +281,8 @@ public class Kiosk {
             menuNum = sc.nextInt();
 
             if(menuNum == 0){
+                // 뒤로가기
+                check = false;
                 break;
             }
 

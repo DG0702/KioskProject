@@ -2,10 +2,10 @@ package lv7;
 
 public class DesertMenu implements MenuItem {
     // 속성
-    private int number;
-    private String desertName;
-    private double price;
-    private String description;
+    private final int number;
+    private final String desertName;
+    private final double price;
+    private final String description;
 
     // 생성자
     DesertMenu(int number, String desertName, double price, String description) {
@@ -53,16 +53,21 @@ public class DesertMenu implements MenuItem {
                 "   |   설명 : " + getDescription();
     }
 
+
+
+    // 장바구니(디저트) 이름
     @Override
     public String getMenuName(){
         return getDesertName();
     }
 
+    // 장바구니(디저트) 가격
     @Override
     public double getMenuPrice(){
         return getPrice();
     }
 
+    // 장바구니(디저트) 설명
     @Override
     public String getMenuDescription(){
         return getDescription();
