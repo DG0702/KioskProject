@@ -54,16 +54,21 @@ public class DesertMenu  implements MenuItem{
                 "   |  설명 : " + getDescription();
     }
 
+
+
+    // 장바구니(디저트) 이름
     @Override
     public String getMenuName(){
         return getDesertName();
     }
 
+    // 장바구니(디저트) 가격
     @Override
     public double getMenuPrice(){
         return getPrice();
     }
 
+    // 장바구니(디저트) 설명
     @Override
     public String getMenuDescription(){
         return getDescription();

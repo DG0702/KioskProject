@@ -10,6 +10,7 @@ public class ShoppingCart  {
         this.menu = menu;
     }
 
+
     // 장바구니에 담긴 목록 이름
     public String getMenuName(){
         return menu.getMenuName();
@@ -26,8 +27,8 @@ public class ShoppingCart  {
     }
 
     // 장바구니 주문 목록
-    public String showOrderList (){
-        return "주문목록 : " + getMenuName() + "   |  가격 : " + getMenuPrice() + "   | 설명 : " + getMenuDescription();
+    public String showOrderList (int i){
+        return "주문목록 : " + i + "번  |   " + getMenuName() + "   |  가격 : " + getMenuPrice() + "   | 설명 : " + getMenuDescription();
     }
     
 

@@ -46,24 +46,33 @@ public class Kiosk  {
                 if (categoryNum == 0) {
                     System.out.println("주문 종료");
                     break;
-                } 
-                
-                // 주문을 할 경우
-                else if (categoryNum == 4) {
-                    printShoppingCart();
-                    continue;
                 }
-                
-                // 주문을 취소할 경우
-                else if (categoryNum == 5) {
-                    cartItems.clear();
-                    System.out.println("주문이 취소 되었습니다.");
-                    continue;
+
+                // 장바구니에 메뉴를 담았을 때
+                if(!cartItems.isEmpty()){
+                    // 주문을 할 경우
+                    if (categoryNum == 4) {
+                        printShoppingCart();
+                        continue;
+                    }
+
+                    // 주문을 취소할 경우
+                    else if (categoryNum == 5) {
+                        cartItems.clear();
+                        System.out.println("주문이 취소 되었습니다.");
+                        continue;
+                    }
+
+                    // (1,2,3,4,5) 카테고리 메뉴에서 잘못 눌렸을 경우
+                    else if (categoryNum > 5) {
+                        System.out.println("번호를 선택해주세요 (1번 Burger, 2번 Drinks 3번 Desert 4번 Order 5번 Cancel)");
+                        continue;
+                    }
                 }
-                
-                // 잘못 눌렸을 경우
-                else if (categoryNum > 5) {
-                    System.out.println("번호를 선택해주세요 (1번 Burger, 2번 Drinks 3번 미정 4번 Order 5번 Cancel)");
+
+                // (1,2,3) 카테고리 메뉴에서 잘못 눌렸을 경우
+                else if (categoryNum > 3) {
+                    System.out.println("번호를 선택해주세요 (1번 Burger, 2번 Drinks 3번 Desert)");
                     continue;
                 }
 
@@ -121,9 +130,12 @@ public class Kiosk  {
             System.out.println("[Orders]");
 
             // 장바구니에 담긴 메뉴 출력
+            int i = 1;
             for(ShoppingCart cart : this.cartItems){
-                System.out.println(cart.showOrderList());
+                System.out.println(cart.showOrderList(i));
+                i++;
             }
+
             System.out.println();
             System.out.println("[Total]");
             for(ShoppingCart cart : this.cartItems){

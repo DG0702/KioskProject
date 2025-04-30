@@ -56,20 +56,21 @@ public class BeverageMenu  implements MenuItem{
                 "   |   설명 : " + getDescription();
     }
 
-    // 메뉴(음료) 이름
+
+    // 장바구니(음료) 이름
     @Override
     public String getMenuName(){
         return getBeverageName();
     }
 
-    // 메뉴(음료) 가격
+    // 장바구니(음료) 가격
     @Override
     public double getMenuPrice(){
         return getPrice();
     }
 
 
-    // 메뉴(음료) 설명
+    // 장바구니(음료) 설명
     @Override
     public String getMenuDescription(){
         return getDescription();
