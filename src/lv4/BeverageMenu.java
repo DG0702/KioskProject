@@ -2,10 +2,10 @@ package lv4;
 
 public class BeverageMenu implements MenuItem{
     // 속성
-    private int number;
-    private String beverageName;
-    private double price;
-    private String description;
+    private final int number;
+    private final String beverageName;
+    private final double price;
+    private final String description;
 
     // 생성자
     BeverageMenu(int number, String beverageName, double price, String description) {

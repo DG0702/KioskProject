@@ -6,9 +6,9 @@ import java.util.List;
 public class Main {
 
     // 추가할 리스트 작성
-    private static List<CategoryMenu<MenuItem>> categoryMenus = new ArrayList<>();
-    private static List<MenuItem> hamburgerMenus = new ArrayList<>();
-    private static List<MenuItem> beverageMenus = new ArrayList<>();
+    private static final List<CategoryMenu<MenuItem>> categoryMenus = new ArrayList<>();
+    private static final List<MenuItem> hamburgerMenus = new ArrayList<>();
+    private static final List<MenuItem> beverageMenus = new ArrayList<>();
 
 
     // main 메서드
