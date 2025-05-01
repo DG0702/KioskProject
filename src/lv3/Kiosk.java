@@ -9,7 +9,7 @@ public class Kiosk {
 
     // 프로그램 메뉴 관리, 사용자 입력 처리
 
-    Scanner sc = new Scanner(System.in);
+    private final Scanner sc = new Scanner(System.in);
 
 
     // 메뉴 추가하는 리스트

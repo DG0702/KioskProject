@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 
 public class Kiosk {
     // 입력 값을 받는 객체 생성
-    Scanner sc = new Scanner(System.in);
+    private final Scanner sc = new Scanner(System.in);
 
 
     // 카테고리 메뉴

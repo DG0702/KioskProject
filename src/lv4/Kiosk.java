@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Kiosk {
     
     // 입력값 받는 객체 생성
-    Scanner sc = new Scanner(System.in);
+    private final Scanner sc = new Scanner(System.in);
 
     // 필드
     private final List<CategoryMenu<MenuItem>> categoryMenus;
