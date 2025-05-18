@@ -11,19 +11,19 @@ public enum Discount {
     private final int number;
 
     // 생성자
-    Discount(int number){
+    Discount(int number) {
         this.number = number;
     }
 
     // 할당된 값 가져오기 -> (1,2,3,4)
-    public int getNumber(){
+    public int getNumber() {
         return number;
     }
     
     // 입력 받은 숫자 -> Discount 타입으로 변경
-    public static Discount getDiscount(int discount){
-        for(Discount dc : values()){
-            if(dc.getNumber() == discount){
+    public static Discount getDiscount(int discount) {
+        for(Discount dc : values()) {
+            if(dc.getNumber() == discount) {
                 return dc;
             }
         }

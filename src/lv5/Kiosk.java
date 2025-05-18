@@ -16,12 +16,12 @@ public class Kiosk {
     private int categoryNum;
 
     // 생성자
-    Kiosk(List<CategoryMenu<MenuItem>> categoryMenus){
+    Kiosk(List<CategoryMenu<MenuItem>> categoryMenus) {
         this.categoryMenus = categoryMenus;
     }
     
     // 키오스크 사용 메서드
-    public void start(){
+    public void start() {
         try {
             do {
                 // 카테고리 메뉴출력
@@ -29,7 +29,7 @@ public class Kiosk {
 
                 // 카테고리 번호
                 categoryNum = sc.nextInt();
-                if(categoryNum == 0){
+                if(categoryNum == 0) {
                     System.out.println("주문 종료");
                     break;
                 } else if (categoryNum <= categoryMenus.size()) {
@@ -45,44 +45,44 @@ public class Kiosk {
 
             }while(true);
 
-        } catch (InputMismatchException e){
+        } catch (InputMismatchException e) {
             throw new InputMismatchException("번호를 선택해주세요");
         }
     }
 
 
     // 카테고리 메뉴 출력
-    private void printCategoryMenu(){
+    private void printCategoryMenu() {
         System.out.println();
         System.out.println("[SHAKESHACK CATEGORY MENU] 번호를 골라주세요 / 0 입력 시 종료");
 
         // 카테고리 메뉴
-        for(CategoryMenu<MenuItem> categoryMenu : categoryMenus){
+        for(CategoryMenu<MenuItem> categoryMenu : categoryMenus) {
             System.out.println(categoryMenu.getNumber() + "번 " + categoryMenu.getCategoryName());
         }
     }
     
     
     // 카테고리 메뉴 출력
-    private void printMenu(int categoryNum){
+    private void printMenu(int categoryNum) {
         // 메뉴판
         categoryMenus.get(categoryNum - 1).showCategory();
     }
 
 
     // 메뉴 선택
-    private void getSelectMenu(){
-        while(true){
+    private void getSelectMenu() {
+        while(true) {
             System.out.println("메뉴를 선택해주세요 / '0' 입력시 뒤로가기");
 
             // 메뉴 번호
             int menuNum = sc.nextInt();
 
-            if(menuNum == 0){
+            if(menuNum == 0) {
                 break;
             }
             // 리스트 안에 객체가 존재하고 -> 그 객체가 리스트 형태로 존재
-            else if(menuNum <= categoryMenus.get(categoryNum -1).getCategoryList().size()){
+            else if(menuNum <= categoryMenus.get(categoryNum -1).getCategoryList().size()) {
                 // 선택한 카테고리 메뉴 출력 (고른 메뉴)
                 categoryMenus.get(categoryNum -1).selectMenu(menuNum);
                 break;

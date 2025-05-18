@@ -201,7 +201,7 @@ public class Kiosk  {
     
 
     // 장바구니 추가여부 메서드
-    private void getShoppingCart(){
+    private void getShoppingCart() {
         while (true) {
             // 장바구니 추가 질문
             System.out.println("위 메뉴를 장바구니에 추가하시겠습니까? (1 : 확인 , 2 : 취소(뒤로가기)");
@@ -210,7 +210,7 @@ public class Kiosk  {
             int cartNum = sc.nextInt();
 
             // 2번 입력 시
-            if(cartNum == 2){
+            if(cartNum == 2) {
                 break;
             }
 

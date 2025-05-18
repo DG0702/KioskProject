@@ -17,28 +17,28 @@ public class HamburgerMenu implements MenuItem  {
     }
 
     // 메뉴 (햄버거) 번호
-    public int getNumber(){
+    public int getNumber() {
         return number;
     }
 
     // 메뉴 (햄버거) 이름
-    public String getHamburgerName(){
+    public String getHamburgerName() {
         return hamburgerName;
     }
 
     // 메뉴 (햄버거) 가격
-    public double getPrice(){
+    public double getPrice() {
         return price;
     }
 
     // 메뉴 (햄버거) 설명
-    public String getDescription(){
+    public String getDescription() {
         return description;
     }
 
     // 메뉴판
     @Override
-    public String showMenu(){
+    public String showMenu() {
         return  getNumber() + "번 " +
                 "   |   햄버거 : " + getHamburgerName() +
                 "   |   가격 : " + getPrice() +
@@ -47,7 +47,7 @@ public class HamburgerMenu implements MenuItem  {
     
     // 메뉴 출력
     @Override
-    public String selectMenu(){
+    public String selectMenu() {
         return "선택한 메뉴 : " + getNumber() + "번" +
                 "   |  햄버거 : " + getHamburgerName() +
                 "   |  가격 : " + getPrice() +

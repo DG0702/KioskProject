@@ -2,7 +2,7 @@ package lv4;
 
 import java.util.List;
 
-public class CategoryMenu <T extends MenuItem>{
+public class CategoryMenu <T extends MenuItem> {
 
     // 속성
     private final int number;
@@ -29,20 +29,20 @@ public class CategoryMenu <T extends MenuItem>{
     }
 
     // 카테고리 이름
-    public String getCategoryName(){
+    public String getCategoryName() {
         return categoryName;
     }
 
 
     // 카테고리별 메뉴 출력 (메뉴판)
-    public void showCategory(){
+    public void showCategory() {
         for(T categoryListMenu : categoryList) {
             System.out.println(categoryListMenu.showMenu());
         }
     }
 
     // 선택한 카테고리 메뉴 출력 (고른 메뉴)
-    public void selectMenu(int menuNum){
+    public void selectMenu(int menuNum) {
         System.out.println(getCategoryList().get(menuNum-1).selectMenu());
     }
 

@@ -1,7 +1,7 @@
 package lv6;
 
 
-public class BeverageMenu  implements MenuItem{
+public class BeverageMenu  implements MenuItem {
 
     // 속성
     private final int number;
@@ -11,7 +11,7 @@ public class BeverageMenu  implements MenuItem{
 
 
     // 생성자
-    BeverageMenu(int number, String beverageName, double price, String description){
+    BeverageMenu(int number, String beverageName, double price, String description) {
         this.number = number;
         this.beverageName = beverageName;
         this.price = price;
@@ -40,7 +40,7 @@ public class BeverageMenu  implements MenuItem{
 
     // 메뉴판
     @Override
-    public String showMenu(){
+    public String showMenu() {
         return  getNumber() + "번 " +
                 "   |   음료 : " + getBeverageName() +
                 "   |   가격 : " + getPrice() +
@@ -49,7 +49,7 @@ public class BeverageMenu  implements MenuItem{
 
     // 메뉴(음료) 출력
     @Override
-    public String selectMenu(){
+    public String selectMenu() {
         return "선택한 메뉴 : " + getNumber() + "번" +
                 "   |   음료 : " + getBeverageName() +
                 "   |   가격 : " + getPrice() +
@@ -72,7 +72,7 @@ public class BeverageMenu  implements MenuItem{
 
     // 장바구니(음료) 설명
     @Override
-    public String getMenuDescription(){
+    public String getMenuDescription() {
         return getDescription();
     }
 

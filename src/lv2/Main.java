@@ -32,7 +32,7 @@ public class Main {
                 choice = sc.nextInt();
 
                 // 메뉴 번호를 선택하지 않았을 경우
-                if(choice > menuItems.size()){
+                if(choice > menuItems.size()) {
                     System.out.println("메뉴 번호를 선택해주세요 (1,2,3,4)");
                     continue;
                 }
@@ -49,7 +49,7 @@ public class Main {
 
 
     // 메뉴 출력 메서드
-    private static void printMenu(){
+    private static void printMenu() {
         System.out.println();
         System.out.println("[SHAKESHACK MENU]");
         // 메뉴 종류 출력
@@ -62,7 +62,7 @@ public class Main {
 
 
     // 메뉴 추가 (초기화) 메서드
-    private static void initializeMenu(){
+    private static void initializeMenu() {
         menuItems.add(new MenuItem(1,"ShackBurger ", 6.9 , " 토마토, 양상추, 쉑소스가 토핑된 치즈버거" ));
         menuItems.add(new MenuItem(2,"SmokeShack ", 8.9 , " 베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거" ));
         menuItems.add(new MenuItem(3,"Cheeseburger ", 6.9 , " 포테이토 번과 비프패티, 치즈가 토핑된 치즈버거" ));
@@ -70,9 +70,9 @@ public class Main {
     }
 
     // 선택한 메뉴 출력 메서드 
-    private static void choiceMenu(int choice){
+    private static void choiceMenu(int choice) {
         // 메뉴 선택
-        if(choice == 0){
+        if(choice == 0) {
             return;
         }
         System.out.println(menuItems.get(choice-1).selectMenu());

@@ -21,7 +21,7 @@ public class Kiosk {
 
     
     // 키오스크 사용 메서드
-    public void start(){
+    public void start() {
         try {
             // 메뉴 번호
             int choice;
@@ -49,12 +49,12 @@ public class Kiosk {
 
     
     // 메뉴 출력하는 메서드
-    private void printMenu(){
+    private void printMenu() {
         System.out.println();
         System.out.println("[SHAKESHACK MENU]");
 
         // 메뉴 종류 출력
-        for(MenuItem menuitem : menuItems){
+        for(MenuItem menuitem : menuItems) {
             System.out.println(menuitem.showMenu());
         }
         System.out.println("0. 종료      | 종료");
@@ -62,9 +62,9 @@ public class Kiosk {
     }
 
     // 선택한 메뉴 출력
-    private void choiceMenu(int choice){
+    private void choiceMenu(int choice) {
         // 선택한 메뉴 출력
-        if(choice == 0){
+        if(choice == 0) {
             return;
         }
         System.out.println(menuItems.get(choice-1).selectMenu());

@@ -1,6 +1,6 @@
 package lv6;
 
-public class DesertMenu  implements MenuItem{
+public class DesertMenu  implements MenuItem {
 
     // 속성
     private final int number;
@@ -17,28 +17,28 @@ public class DesertMenu  implements MenuItem{
     }
     
     // 메뉴 (디저트) 번호
-    public int getNumber(){
+    public int getNumber() {
         return number;
     }
 
     // 메뉴 (디저트) 이름
-    public String getDesertName(){
+    public String getDesertName() {
         return desertName;
     }
 
     // 메뉴 (디저트) 가격
-    public double getPrice(){
+    public double getPrice() {
         return price;
     }
 
     // 메뉴 (디저트) 설명
-    public String getDescription(){
+    public String getDescription() {
         return description;
     }
 
     // 메뉴판
     @Override
-    public String showMenu(){
+    public String showMenu() {
         return  getNumber() + "번 " +
                 "   |   디저트 : " + getDesertName() +
                 "   |   가격 : " + getPrice() +
@@ -47,7 +47,7 @@ public class DesertMenu  implements MenuItem{
 
     // 메뉴 (디저트) 출력
     @Override
-    public String selectMenu(){
+    public String selectMenu() {
         return "선택한 메뉴 : " + getNumber() + "번" +
                 "   |  디저트 : " + getDesertName() +
                 "   |  가격 : " + getPrice() +
@@ -58,19 +58,19 @@ public class DesertMenu  implements MenuItem{
 
     // 장바구니(디저트) 이름
     @Override
-    public String getMenuName(){
+    public String getMenuName() {
         return getDesertName();
     }
 
     // 장바구니(디저트) 가격
     @Override
-    public double getMenuPrice(){
+    public double getMenuPrice() {
         return getPrice();
     }
 
     // 장바구니(디저트) 설명
     @Override
-    public String getMenuDescription(){
+    public String getMenuDescription() {
         return getDescription();
     }
 

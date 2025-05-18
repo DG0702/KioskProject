@@ -36,7 +36,7 @@ public class Main {
     }
 
     // 카테고리 메뉴 추가 메서드
-    private static void initializeCategoryMenus (){
+    private static void initializeCategoryMenus () {
         // 카테고리에 메뉴 추가
 
         categoryMenus.add(new CategoryMenu<>(1,"Burgers",hamburgerMenus));
@@ -45,7 +45,7 @@ public class Main {
     }
 
     // 햄버거 메뉴 추가 메서드
-    private static void initializeHamburgerMenus(){
+    private static void initializeHamburgerMenus() {
         // 햄버거 추가
         hamburgerMenus.add(new HamburgerMenu(1,"ShackBurger ", 6.9 , " 토마토, 양상추, 쉑소스가 토핑된 치즈버거" ));
         hamburgerMenus.add(new HamburgerMenu(2,"SmokeShack ", 8.9 , " 베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거" ));
@@ -54,7 +54,7 @@ public class Main {
     }
 
     // 음료 메뉴 추가 메서드
-    private static void initializeBeverageMenus(){
+    private static void initializeBeverageMenus() {
         // 음료 추가
         beverageMenus.add(new BeverageMenu(1,"코카콜라",2.5,"시원한 탄산 코카콜라"));
         beverageMenus.add(new BeverageMenu(2,"사이다",2.0,"천연 사이다~~"));
@@ -62,7 +62,7 @@ public class Main {
         beverageMenus.add(new BeverageMenu(4,"펩시",1.5,"신선한 탄산음료 펩~시"));
     }
 
-    private static void initializeDesertMenus(){
+    private static void initializeDesertMenus() {
         // 디저트 추가
         desertMenus.add(new DesertMenu(1,"초코케이크" , 6.0,"달달하고 맛있는 초코 케잌"));
         desertMenus.add(new DesertMenu(2,"치즈케이크" , 7.0,"고급 치즈를 사용한 치즈 케잌"));

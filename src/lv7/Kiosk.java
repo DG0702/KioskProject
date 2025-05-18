@@ -29,7 +29,7 @@ public class Kiosk {
 
 
     // 생성자
-    Kiosk(List<CategoryMenu<MenuItem>> categoryMenus){
+    Kiosk(List<CategoryMenu<MenuItem>> categoryMenus) {
         this.categoryMenus = categoryMenus;
     }
 
@@ -50,7 +50,7 @@ public class Kiosk {
                 }
 
                 // 장바구니에 메뉴를 담았을 때
-                if(!cartItems.isEmpty()){
+                if(!cartItems.isEmpty()) {
                     // 주문을 할 경우
                     if (categoryNum == 4) {
                         printShoppingCart();
@@ -88,7 +88,7 @@ public class Kiosk {
                 getSelectMenu();
 
                 // 뒤로가기 했을 경우
-                if(!check){
+                if(!check) {
                     continue;
                 }
 
@@ -107,7 +107,7 @@ public class Kiosk {
 
 
     // 카테고리 메뉴 출력
-    private void printCategoryMenus(){
+    private void printCategoryMenus() {
         System.out.println();
         System.out.println("[Main MENU]  / 0 입력 시 종료");
 
@@ -129,7 +129,7 @@ public class Kiosk {
 
 
     // 장바구니 출력
-    private void printShoppingCart(){
+    private void printShoppingCart() {
         while (true) {
             System.out.println("아래와 같이 주문 하시겠습니까?");
             System.out.println("[Orders]");
@@ -193,7 +193,7 @@ public class Kiosk {
 
 
     // 특정 메뉴 빼기
-    private void removeMenu(){
+    private void removeMenu() {
         while (true) {
             // 장바구니 담긴 메뉴
             System.out.println();
@@ -205,7 +205,7 @@ public class Kiosk {
             // 제거할 메뉴 번호
             int removeNum = sc.nextInt();
 
-            if(cartItems.size() < removeNum || removeNum == 0){
+            if(cartItems.size() < removeNum || removeNum == 0) {
                 System.out.println("알맞은 번호를 입력해주세요");
                 continue;
             }
@@ -239,7 +239,7 @@ public class Kiosk {
 
 
     // 할인 목록 출력
-    private void printDiscountMenu(){
+    private void printDiscountMenu() {
         System.out.println();
         System.out.println("[Discount Menu]");
         discountMenu.forEach(System.out::println);
@@ -248,13 +248,13 @@ public class Kiosk {
 
 
     // 할인 계산
-    private void printDiscount(int discountNum, double sumPrice){
+    private void printDiscount(int discountNum, double sumPrice) {
 
         // Discount 타입으로 (할인)
         Discount discount = Discount.getDiscount(discountNum);
 
         // 전체 금액
-        double totalPrice = switch (discount){
+        double totalPrice = switch (discount) {
             case VETERAN -> (sumPrice * 1000) - (sumPrice * 1000 * 0.1);
             case SOLDIER -> (sumPrice * 1000) - (sumPrice * 1000 * 0.05);
             case STUDENT -> (sumPrice * 1000) - (sumPrice * 1000 * 0.03);
@@ -267,7 +267,7 @@ public class Kiosk {
 
 
     // 카테고리 메뉴 출력
-    private void printMenu(int categoryNum){
+    private void printMenu(int categoryNum) {
         // 메뉴판
         categoryMenus.get(categoryNum - 1).getCategory();
     }
@@ -275,12 +275,12 @@ public class Kiosk {
 
 
     // 메뉴 선택
-    private void getSelectMenu(){
-        while(true){
+    private void getSelectMenu() {
+        while(true) {
             System.out.println("메뉴를 선택해주세요 / '0' 입력 시 뒤로가기 ");
             menuNum = sc.nextInt();
 
-            if(menuNum == 0){
+            if(menuNum == 0) {
                 // 뒤로가기
                 check = false;
                 break;
@@ -300,7 +300,7 @@ public class Kiosk {
 
 
     // 장바구니 추가여부 메서드
-    private void getShoppingCart(){
+    private void getShoppingCart() {
         while (true){
             // 장바구니 추가 질문
             System.out.println("위 메뉴를 장바구니에 추가하시겠습니까? (1 : 확인 , 2 : 취소(뒤로가기)");
