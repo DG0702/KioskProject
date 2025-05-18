@@ -15,63 +15,45 @@ public class DesertMenu  implements MenuItem {
         this.price = price;
         this.description = description;
     }
-    
-    // 메뉴 (디저트) 번호
-    public int getNumber() {
-        return number;
-    }
 
-    // 메뉴 (디저트) 이름
-    public String getDesertName() {
+    // 장바구니(디저트) 이름
+    @Override
+    public String getMenuName() {
         return desertName;
     }
 
-    // 메뉴 (디저트) 가격
-    public double getPrice() {
+    // 장바구니(디저트) 가격
+    @Override
+    public double getMenuPrice() {
         return price;
     }
 
-    // 메뉴 (디저트) 설명
-    public String getDescription() {
+    // 장바구니(디저트) 설명
+    @Override
+    public String getMenuDescription() {
         return description;
     }
 
     // 메뉴판
     @Override
     public String showMenu() {
-        return  getNumber() + "번 " +
-                "   |   디저트 : " + getDesertName() +
-                "   |   가격 : " + getPrice() +
-                "   |   설명 :" +getDescription();
+        return  number + "번 " +
+                "   |   디저트 : " + desertName +
+                "   |   가격 : " + price +
+                "   |   설명 :" + description;
     }
 
     // 메뉴 (디저트) 출력
     @Override
     public String selectMenu() {
-        return "선택한 메뉴 : " + getNumber() + "번" +
-                "   |  디저트 : " + getDesertName() +
-                "   |  가격 : " + getPrice() +
-                "   |  설명 : " + getDescription();
+        return "선택한 메뉴 : " + number + "번" +
+                "   |  디저트 : " + desertName +
+                "   |  가격 : " + price +
+                "   |  설명 : " + description;
     }
 
 
 
-    // 장바구니(디저트) 이름
-    @Override
-    public String getMenuName() {
-        return getDesertName();
-    }
 
-    // 장바구니(디저트) 가격
-    @Override
-    public double getMenuPrice() {
-        return getPrice();
-    }
-
-    // 장바구니(디저트) 설명
-    @Override
-    public String getMenuDescription() {
-        return getDescription();
-    }
 
 }

@@ -16,43 +16,21 @@ public class HamburgerMenu implements MenuItem {
         this.description = description;
     }
 
-
-
-    // 메뉴(햄버거) 번호
-    public int getNumber(){
-        return number;
-    }
-
-    // 메뉴(햄버거) 이름
-    public String getHamburgerName() {
-        return hamburgerName;
-    }
-
-    // 메뉴(햄버거) 가격
-    public double getPrice (){
-        return price;
-    }
-
-    // 메뉴(햄버거) 설명
-    public String getDescription() {
-        return description;
-    }
-
     // 메뉴판
     @Override
     public String showMenu() {
-        return  getNumber() + "번 " +
-                "   |   햄버거 : " + getHamburgerName() +
-                "   |   가격 : " + getPrice() +
-                "   |   설명 :" +getDescription();
+        return  number + "번 " +
+                "   |   햄버거 : " + hamburgerName +
+                "   |   가격 : " + price +
+                "   |   설명 :" +description;
     }
 
     // 메뉴 출력
     @Override
     public String selectMenu() {
-        return "선택한 메뉴 : " + getNumber() + "번" +
-                "   |  햄버거 : " + getHamburgerName() +
-                "   |  가격 : " + getPrice() +
-                "   |  설명 :" +getDescription();
+        return "선택한 메뉴 : " + number + "번" +
+                "   |  햄버거 : " + hamburgerName +
+                "   |  가격 : " + price +
+                "   |  설명 :" +description;
     }
 }
