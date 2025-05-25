@@ -1,22 +1,23 @@
 package lv7;
 
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+
+
 
 public class Kiosk {
     // 입력 값을 받는 객체 생성
     private final Scanner sc = new Scanner(System.in);
 
-
     // 카테고리 메뉴
     private final List<CategoryMenu<MenuItem>> categoryMenus;
 
+
     // 장바구니 목록
-    private List<ShoppingCart> cartItems = new ArrayList<>();
+    private final ShoppingCart shoppingCart = new ShoppingCart(new ArrayList<>());
 
     // 카테고리 번호
     private int categoryNum ;
@@ -29,7 +30,7 @@ public class Kiosk {
 
 
     // 생성자
-    Kiosk(List<CategoryMenu<MenuItem>> categoryMenus) {
+    public Kiosk(List<CategoryMenu<MenuItem>> categoryMenus) {
         this.categoryMenus = categoryMenus;
     }
 
@@ -50,7 +51,7 @@ public class Kiosk {
                 }
 
                 // 장바구니에 메뉴를 담았을 때
-                if(!cartItems.isEmpty()) {
+                if(!shoppingCart.isEmpty()) {
                     // 주문을 할 경우
                     if (categoryNum == 4) {
                         printShoppingCart();
@@ -59,7 +60,7 @@ public class Kiosk {
 
                     // 주문을 취소할 경우
                     else if (categoryNum == 5) {
-                        cartItems.clear();
+                        shoppingCart.clear();
                         System.out.println("주문이 취소 되었습니다.");
                         continue;
                     }
@@ -116,7 +117,7 @@ public class Kiosk {
 
 
         // 장바구니 안에 목록이 생겼을 경우
-        if(!cartItems.isEmpty()) {
+        if(!shoppingCart.isEmpty()) {
             System.out.println();
             System.out.println("[ORDER MENU]");
             System.out.println("4. Orders | 장바구니를 확인 후 주문합니다");
@@ -135,8 +136,7 @@ public class Kiosk {
             System.out.println("[Orders]");
 
             // 장바구니에 담긴 메뉴 
-            IntStream.range(0,cartItems.size())
-                    .forEach(i -> System.out.println(cartItems.get(i).showOrderList(i + 1)));
+            shoppingCart.showOrderList();
 
             System.out.println();
             System.out.println("[Total]");
@@ -146,9 +146,7 @@ public class Kiosk {
             // 숫자 전용 메서드 :  .sum() .average() .min() .max() 등
 
             // 장바구니에 메뉴 값 계산 (총 가격)
-            double sumPrice = cartItems.stream()
-                    .mapToDouble(ShoppingCart::getMenuPrice)
-                    .sum();
+            double sumPrice = shoppingCart.getTotalPrice();
 
             System.out.println("W : " + sumPrice);
 
@@ -197,28 +195,25 @@ public class Kiosk {
         while (true) {
             // 장바구니 담긴 메뉴
             System.out.println();
-            IntStream.range(0,cartItems.size())
-                    .forEach(i -> System.out.println(cartItems.get(i).showOrderList(i + 1)));
+
+            shoppingCart.showOrderList();
+
             System.out.println("무슨 메뉴를 빼시겠어요?");
 
 
             // 제거할 메뉴 번호
             int removeNum = sc.nextInt();
 
-            if(cartItems.size() < removeNum || removeNum == 0) {
+            if(shoppingCart.getMenuSize() < removeNum || removeNum == 0) {
                 System.out.println("알맞은 번호를 입력해주세요");
                 continue;
             }
 
             // 메뉴 삭제
-            // cartItems.remove(removeNum-1); -> 더 간단함
-            cartItems = cartItems.stream()
-                    .filter(item -> cartItems.indexOf(item) != removeNum -1)
-                    .collect(Collectors.toList());
+            shoppingCart.removeMenuItem(removeNum -1 );
 
             // 장바구니 담긴 메뉴
-            IntStream.range(0,cartItems.size())
-                    .forEach(i -> System.out.println(cartItems.get(i).showOrderList(i + 1)));
+            shoppingCart.showOrderList();
             break;
 
         }
@@ -261,7 +256,7 @@ public class Kiosk {
             case GENERAL -> sumPrice * 1000;
         };
         System.out.println("주문이 완료되었습니다 금액은 W : " + (int)totalPrice + "원 입니다");
-        cartItems.clear();
+        shoppingCart.clear();
     }
 
 
@@ -317,14 +312,11 @@ public class Kiosk {
             else if (cartNum == 1) {
                 // 공통 타입 (인터페이스) -> 메뉴(햄버거, 음료 등)의 부모 타입
                 // 공통 타입으로 변환 (어떤 메뉴를 고르지 모르기 때문에 공통타입으로 설정)
-                MenuItem menu = categoryMenus.get(categoryNum - 1).getCategoryList().get(menuNum - 1);
+                MenuItem menuItem = categoryMenus.get(categoryNum - 1).getCategoryList().get(menuNum - 1);
 
-                // 장바구니 객체 생성 -> 장바구니 리스트 안에 담기 위해서
-                ShoppingCart Items = new ShoppingCart(menu);
-
-                // 장바구니 안에 메뉴 넣기 (여러 종류 -> 리스트 형태)
-                cartItems.add(Items);
-                System.out.println(cartItems.get(cartItems.size() - 1).getMenuName() + "가 장바구니에 추가되었습니다.");
+                // 장바구니 안에 메뉴 넣기
+                shoppingCart.addMenuItem(menuItem);
+                System.out.println(menuItem.getMenuName() + "가 장바구니에 추가되었습니다.");
                 break;
             }
 
